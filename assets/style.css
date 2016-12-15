@@ -127,6 +127,22 @@ ul {
   text-indent: -1rem;
 }
 
+.toggle-hidden > .toggle-target {
+  display: none;
+}
+.toggle-sibling:hover {
+  cursor: pointer;
+}
+.toggle-icon {
+  font-size: .875rem;
+}
+.toggle-icon:after {
+  content: "▾"
+}
+.toggle-hidden .toggle-icon:after {
+  content: "▸"
+}
+
 .input {
   font-family: inherit;
   display: block;

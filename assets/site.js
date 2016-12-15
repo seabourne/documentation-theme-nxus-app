@@ -69,17 +69,20 @@ for (var j = 0; j < items.length; j++) {
   items[j].addEventListener('click', toggleSibling);
 }
 
+function getAncestorByClassName(node, klass) {
+  var parent;
+  for (parent = node; parent !== document; parent = parent.parentNode)
+    if (parent.classList.contains(klass)) return parent;
+  return undefined;
+}
+
 function toggleSibling() {
-  var stepSibling = this.parentNode.getElementsByClassName('toggle-target')[0];
-  var icon = this.getElementsByClassName('icon')[0]
-  var klass = 'display-none';
-  if (stepSibling.classList.contains(klass)) {
-    stepSibling.classList.remove(klass);
-    icon.innerHTML = '▾';
-  } else {
-    stepSibling.classList.add(klass);
-    icon.innerHTML = '▸';
-  }
+  var parent = getAncestorByClassName(this, 'toggle-group'),
+      klass = 'toggle-hidden';
+  if (parent.classList.contains(klass))
+    parent.classList.remove(klass);
+  else
+    parent.classList.add(klass);
 }
 
 function showHashTarget(targetId) {

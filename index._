@@ -27,14 +27,14 @@
                   var hasMembers = (doc.members.static && doc.members.static.length) || (doc.members.instance && doc.members.instance.length) || (doc.members.events && doc.members.events.length),
                       hasChildren = !!doc.toc || hasMembers
                 %>
-                <li class="<%=doc.kind%>"><a
+                <li class="<%=doc.kind%><% if (hasChildren) { %> toggle-group toggle-hidden<% } %>"><a
                   href="#<%=doc.namespace%>"
-                  class="<% if (hasChildren) { %> toggle-sibling<% } %>">
+                  class="<% if (hasChildren) { %>toggle-sibling<% } %>">
                   <%- doc.name %>
-                  <% if (hasChildren) { %><span class='icon'>▸</span><% } %>
+                  <% if (hasChildren) { %><span class="toggle-icon"></span><% } %>
                 </a>
                 <% if (hasChildren) { %>
-                <div class='toggle-target display-none'>
+                <div class="toggle-target">
                   <% if (doc.toc) { %>
                   <ul>
                     <% doc.toc.forEach(function(heading) { %>

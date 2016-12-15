@@ -107,14 +107,14 @@
       <div class="sm-col sm-col-7 h5">Method</div>
       <div class="sm-col sm-col-5 h5">Description</div>
       <% section.members.static.forEach(function(member) { %>
-	<div id='<%- member.namespace %>'>
+	<div id="<%- member.namespace %>" class="toggle-group toggle-hidden">
 	  <div class="clearfix toggle-sibling">
 	    <div class="py1 keyline-top sm-col sm-col-7">
-	      <a class='h6 toggle-step-sibling icon'>▸</a> <span class='pre'><%= signature(member) %></span>
+	      <span class="toggle-icon"></span> <span class='pre'><%= signature(member) %></span>
 	    </div>
 	    <div class="py1 keyline-top sm-col sm-col-5 h5 truncate"><%= md(member.description, true) %></div>
 	  </div>
-	  <div class="clearfix display-none toggle-target">
+	  <div class="clearfix toggle-target">
 	    <%= renderSection({
 	      section: member,
 	      renderSection: renderSection
@@ -131,14 +131,14 @@
       <div class="sm-col sm-col-7 h5">Method</div>
       <div class="sm-col sm-col-5 h5">Description</div>
       <% section.members.instance.forEach(function(member) { %>
-	<div id='<%- member.namespace %>'>
+	<div id="<%- member.namespace %>" class="toggle-group toggle-hidden">
 	  <div class="clearfix toggle-sibling">
 	    <div class="py1 keyline-top sm-col sm-col-7">
-	      <a class='h6 toggle-step-sibling icon'>▸</a> <span class='pre'><%= signature(member) %></span>
+	      <span class="toggle-icon"></span> <span class='pre'><%= signature(member) %></span>
 	    </div>
 	    <div class="py1 keyline-top sm-col sm-col-5 h5 truncate"><%= md(member.description, true) %></div>
 	  </div>
-	  <div class="clearfix display-none toggle-target">
+	  <div class="clearfix toggle-target">
 	    <%= renderSection({
 	      section: member,
 	      renderSection: renderSection
@@ -155,14 +155,14 @@
       <div class="sm-col sm-col-5 h5">Event</div>
       <div class="sm-col sm-col-7 h5">Description</div>
       <% section.members.events.forEach(function(member) { %>
-	<div id='<%- member.namespace %>'>
+	<div id="<%- member.namespace %>" class="toggle-group toggle-hidden">
 	  <div class="clearfix toggle-sibling">
 	    <div class="py1 keyline-top sm-col sm-col-5">
-	      <a class='h6 toggle-step-sibling icon'>▸</a> <span class='pre'><%= signature(member) %></span>
+	      <span class="toggle-icon"></span> <span class='pre'><%= signature(member) %></span>
 	    </div>
 	    <div class="py1 keyline-top sm-col sm-col-7 h5 truncate"><%= md(member.description, true) %></div>
 	  </div>
-	  <div class="clearfix display-none toggle-target">
+	  <div class="clearfix toggle-target">
 	    <%= renderSection({
 	      section: member,
 	      renderSection: renderSection
