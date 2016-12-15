@@ -21,20 +21,34 @@
             class='col12 block input'
             type='text' />
           <div id='toc'>
-            <ul class='list-reset h5 py1-ul'>
+            <ul>
               <% docs.forEach(function(doc) { %>
-                <% var hasMembers = doc.members.static.length || doc.members.instance.length %>
-                <li><a
-                  href='#<%=doc.namespace%>'
-                  class="<% if (doc.kind === 'note') { %>h5 bold black caps<% } %><% if (hasMembers) { %> toggle-sibling<% } %>">
+                <%
+                  var hasMembers = (doc.members.static && doc.members.static.length) || (doc.members.instance && doc.members.instance.length) || (doc.members.events && doc.members.events.length),
+                      hasChildren = !!doc.toc || hasMembers
+                %>
+                <li class="<%=doc.kind%>"><a
+                  href="#<%=doc.namespace%>"
+                  class="<% if (hasChildren) { %> toggle-sibling<% } %>">
                   <%- doc.name %>
-                  <% if (hasMembers) { %><span class='icon'>▸</span><% } %>
+                  <% if (hasChildren) { %><span class='icon'>▸</span><% } %>
                 </a>
-                <% if (hasMembers) { %>
+                <% if (hasChildren) { %>
                 <div class='toggle-target display-none'>
+                  <% if (doc.toc) { %>
+                  <ul>
+                    <% doc.toc.forEach(function(heading) { %>
+                    <li><a
+                      href="#<%=heading.namespace%>"
+                      class="regular pre-open">
+                      <%= md(heading, true) %>
+                    </a></li>
+                    <% }) %>
+                  </ul>
+                  <% } %>
                   <% if (doc.members.static && doc.members.static.length) { %>
-                  <ul class='list-reset py1-ul pl1'>
-                    <li class='h5'>Static members</li>
+                  <ul>
+                    <li>Static members</li>
                     <% doc.members.static.forEach(function(member) { %>
                       <li><a
                         href='#<%=member.namespace%>'
@@ -45,8 +59,8 @@
                     </ul>
                   <% } %>
                   <% if (doc.members.instance && doc.members.instance.length) { %>
-                    <ul class='list-reset py1-ul pl1'>
-                      <li class='h5'>Instance members</li>
+                    <ul>
+                      <li>Instance members</li>
                       <% doc.members.instance.forEach(function(member) { %>
                       <li><a
                         href='#<%=member.namespace%>'
@@ -57,8 +71,8 @@
                     </ul>
                   <% } %>
                   <% if (doc.members.events && doc.members.events.length) { %>
-                    <ul class='list-reset py1-ul pl1'>
-                      <li class='h5'>Events</li>
+                    <ul>
+                      <li>Events</li>
                       <% doc.members.events.forEach(function(member) { %>
                         <li><a
                           href='#<%=member.namespace%>'
