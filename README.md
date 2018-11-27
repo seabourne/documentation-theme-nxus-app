@@ -1,14 +1,19 @@
-# documentation-theme-default
+# documentation-theme-nxus-app
 
 [![Circle CI](https://circleci.com/gh/documentationjs/documentation-theme-default.svg?style=svg)](https://circleci.com/gh/documentationjs/documentation-theme-default)
 
 ![](screenshot.png)
 
-This is the default theme for [documentationjs](https://github.com/documentationjs):
+This is a lightly modified version of the
+[default theme](https://github.com/documentationjs/documentation-theme-default)
+for [documentationjs](https://github.com/documentationjs) intended for
+use in documenting nxus applications. The differences involve mainly the
+table of contents display and the handling of links within the
+documentation.
+
+Like the default theme,
 it consists of Handlebars templates and a few assets: a [highlight.js](https://highlightjs.org/)
 theme and [basscss](http://www.basscss.com/) as a basic CSS framework.
-
-This is bundled by default in documentation: it is the default theme.
 
 The contents are the following:
 

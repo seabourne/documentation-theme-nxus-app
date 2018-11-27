@@ -1,7 +1,7 @@
 {
-  "name": "documentation-theme-default",
+  "name": "documentation-theme-nxus-app",
   "version": "3.0.0",
-  "description": "the default theme for documentation",
+  "description": "a theme for nxus application documentation",
   "scripts": {
     "lint": "eslint *.js **/*.js",
     "test": "npm run lint && tap -t 120 --coverage test/*.js"
@@ -9,19 +9,19 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/documentationjs/documentation-theme-default.git"
+    "url": "git+https://github.com/seabourne/documentation-theme-nxus-app.git"
   },
   "keywords": [
     "documentation",
     "documentation-theme",
     "theme"
   ],
-  "author": "Tom MacWright",
+  "author": "David Kellerman <davidk@seabourneconsulting.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/documentationjs/documentation-theme-default/issues"
+    "url": "https://github.com/seabourne/documentation-theme-nxus-app/issues"
   },
-  "homepage": "https://github.com/documentationjs/documentation-theme-default",
+  "homepage": "https://github.com/seabourne/documentation-theme-nxus-app",
   "dependencies": {
     "concat-stream": "^1.5.0",
     "documentation-theme-utils": "^3.0.0",
